@@ -2,13 +2,15 @@ import './App.css';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Shop from './components/Shop';
+import {ToastContainer} from "react-toastify";
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <Shop/>
-      <Footer/>
+        <ToastContainer />
+        <Navbar/>
+        <Shop/>
+        <Footer/>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { API_KEY, API_URL } from '../config';
 import GoodList from './GoodList';
 import Cart from './Cart';
 import BasketList from "./BacketList";
+import {toast} from "react-toastify";
 
 export default function Shop() {
 
@@ -36,6 +37,7 @@ export default function Shop() {
             )
             setOrder(newOrder);
         }
+        toast.success('Goods addded to basket succesfully!')
     }
     //Barcha elementlarni api da olib cart ko'rinishida webApp ga chiqarish
     useEffect(() => {
@@ -57,6 +59,35 @@ export default function Shop() {
     const removeFromBasket=(itemID)=>{
         const newOrder=order.filter(item=>item.id!== itemID);
         setOrder(newOrder);
+        toast.error('Goods deleted from basket succesfully!')
+    }
+    const incrementQuantity=(itemID)=>{
+        const newOrder = order.map(item=>{
+            if(item.id===itemID){
+                const newQuantity=item.quantity+1;
+                return {
+                    ...item,
+                    quantity: newQuantity
+                }
+            }else{
+                return item;
+            }
+        })
+        setOrder(newOrder);
+    }
+    const decrementQuantity=(itemID)=>{
+        const newOrder = order.map(item=>{
+            if(item.id===itemID){
+                const newQuantity=item.quantity-1;
+                return {
+                    ...item,
+                    quantity: newQuantity >=0?newQuantity:0
+                }
+            }else{
+                return item;
+            }
+        })
+        setOrder(newOrder);
     }
     return (
         <div className="content container">
@@ -66,6 +97,8 @@ export default function Shop() {
                 order={order}
                 handleBasketShow={handleBasketShow}
                 removeFromBasket={removeFromBasket}
+                incrementQuantity={incrementQuantity}
+                decrementQuantity={decrementQuantity}
             />}
         </div>
     )

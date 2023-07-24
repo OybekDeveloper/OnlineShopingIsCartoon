@@ -97,3 +97,17 @@ nav{
   from{top:70%;opacity: 0}
   to{top:50%;opacity: 1}
 }
+.btnAll{
+  position: relative;
+  bottom: 6px;
+  margin:0px 5px;
+}
+
+@media (max-width: 576px) {
+.spanMob{
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+}
+  
+}
