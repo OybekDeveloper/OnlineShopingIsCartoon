@@ -6,6 +6,10 @@
 
 nav{
   padding: 0px 2rem ;
+  background:cadetblue;
+}
+.footerColor{
+  background:cadetblue;
 }
 .content{
   padding: 1.5rem 0;
@@ -110,4 +114,11 @@ nav{
   margin: 10px;
 }
   
+}
+.LogoNav{
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-top: 11px;
 }
