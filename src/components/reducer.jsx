@@ -3,7 +3,6 @@ import {toast} from "react-toastify";
 export  function reducer (state, {type , payload}){
     switch (type){
         case 'ADD_TO_BASKET': {
-            toast.success('Goods addded to basket succesfully!');
             const itemIndex = state.order.findIndex(
                 (orderItem) => orderItem.id === payload.id
             )
@@ -27,6 +26,7 @@ export  function reducer (state, {type , payload}){
                     }
                 )
             }
+            toast.success("Goods add to basket great!")
             return{
                 ...state,
                 order:newOrder,
@@ -35,11 +35,12 @@ export  function reducer (state, {type , payload}){
 
         }
         case 'REMOVE_TO_BASKET':{
-            toast.error('Goods deleted from basket succesfully!')
+            toast.error('Goods deleted from basket great!')
             return{
                 ...state,
                 order:state.order.filter(item=>item.id!== payload.id)
             }
+
         }
         case 'INCREMENT_QUANTITY': {
             return {
@@ -77,6 +78,13 @@ export  function reducer (state, {type , payload}){
             return{
                 ...state,
                 isBasketShow: !state.isBasketShow
+            }
+        }
+        case 'SET_GOODS':{
+            return{
+                ...state,
+                goods:payload || [],
+                loader:false
             }
         }
         default:

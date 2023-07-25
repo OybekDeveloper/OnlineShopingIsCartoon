@@ -15,7 +15,7 @@ export default function Footer() {
                         <h5 className="white-text">What can you do with us</h5>
                         <ul>
                             <li><a className="grey-text text-lighten-3" href="#!">Home</a></li>
-                            <li><a className="grey-text text-lighten-3" href="#!">Brend</a></li>
+                            <li><a className="grey-text text-lighten-3" href="#!">Brent</a></li>
                             <li><a className="grey-text text-lighten-3" href="#!">About</a></li>
                             <li><a className="grey-text text-lighten-3" href="#!">Contact</a></li>
                         </ul>
